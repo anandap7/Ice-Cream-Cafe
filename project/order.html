@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css" />
+	<script src="jquery-1.11.1.min.js"> </script>
+	<script src="jquery.mobile-1.4.5.min.js"> </script>
+</head>
+<body>
+	<div data-role="page" data-theme="a">
+	
+		<div data-role="header">
+			<h1>Ice Cream Float Cafe</h1>
+		</div>
+		
+		<div class="ui-field-contain">
+			<label>Nama</label>
+			<input name="nama" type="text" placeholder="Masukkan nama" value="" data-clear-btn="true">
+		</div>
+			
+		<div class="ui-field-contain">
+			<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+				<legend>Topping</legend>
+				<input name="checkbox-v-1a" id="cream" type="checkbox">
+				<label for="cream">Whipped Cream</label>
+				<input name="checkbox-v-1b" id="chocolate" type="checkbox">
+				<label for="chocolate">Chocolate</label>
+				<input name="checkbox-v-1c" id="crunch" type="checkbox">
+				<label for="crunch">Choco Crunch</label>
+				<input name="checkbox-v-1d" id="mini-oreo" type="checkbox">
+				<label for="mini-oreo">Mini Oreo</label>
+				<input name="checkbox-v-1e" id="sprinkle" type="checkbox">
+				<label for="sprinkle">Sprinkles</label>
+			</fieldset>
+		</div>
+		
+		<form name="jumlah" action class="ui-field-contain">
+			<label>Jumlah</label>
+			<input type="text" name="qty" data-mini="true" value="0" disabled="disabled">
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<input type="button" value="Icon only" data-icon="minus" data-iconpos="notext" onclick="dec()">
+				<input type="button" value="Icon only" data-icon="plus" data-iconpos="notext" onclick="inc()">
+			</fieldset>
+		</form>	
+		
+		<a class="ui-btn ui-corner-all ui-shadow ui-btn-inline" href="#popUp" data-rel="popup" data-position-to="window" data-transition="pop">Order</a>
+		<div id="popUp" data-role="popup">
+			<p>Thank you for ordering our ice cream float.</p>
+		</div>
+	</div>
+	
+	<script>
+		var formJumlah = document.jumlah;
+		function dec(){
+			var qty = eval(formJumlah.qty.value);
+			if(qty > 1){formJumlah.qty.value = qty - 1;}
+		}
+		
+		function inc(){
+			var qty = eval(formJumlah.qty.value);
+			if(qty < 20){formJumlah.qty.value = qty + 1;}
+		}
+	</script>
+</body>
+</html>
